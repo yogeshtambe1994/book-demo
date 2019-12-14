@@ -1,0 +1,38 @@
+<%= form_with(model: @author, local: true) do |form| %>
+<% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@author.errors.count, "error") %> prohibited
+        this author from being created:
+      </h2>
+      <ul>
+        <% @author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= link_to 'Back', authors_path %>
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %><br>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %><br>
+    <%= form.label :date_of_birth %><br>
+    <%= form.date_field :date_of_birth%>
+  </p>
+  <p>
+    <%= form.label :Select_books %><br>
+    <% Book.all.each do |book| %>
+      <%= check_box_tag "author[book_ids][]", book.id, @author.book_ids.include?(book.id) %>
+      <%= book.title %>
+      <br />
+    <% end %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Home', root_path %>
