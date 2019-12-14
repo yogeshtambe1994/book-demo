@@ -22,14 +22,14 @@
     <%= form.label :date_of_birth %><br>
     <%= form.date_field :date_of_birth%>
   </p>
-  <p>
+  <!-- <p>
     <%= form.label :Select_books %><br>
     <% Book.all.each do |book| %>
       <%= check_box_tag "author[book_ids][]", book.id, @author.book_ids.include?(book.id) %>
       <%= book.title %>
       <br />
     <% end %>
-  </p>
+  </p> -->
   <p>
     <%= form.submit %>
   </p>

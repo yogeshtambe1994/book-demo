@@ -14,7 +14,7 @@ class AuthorsController < ApplicationController
 
 	def create
 		@author = Author.new(author_params)
-			@author.books << Book.find(params[:author][:book_ids])
+		# @author.books << Book.find(params[:author][:book_ids])
 		if @author.save
 			redirect_to @author
 		else
