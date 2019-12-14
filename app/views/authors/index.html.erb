@@ -3,7 +3,7 @@
 <%= link_to 'New author', new_author_path %>
 
 <table class="table">
-  <tr style="background-color:#cc33ff">
+  <tr>
   	<th>Author Id</th>
     <th>First name</th>
     <th>Last name</th>
@@ -15,18 +15,16 @@
   </tr>
  
   <% @authors.each do |author| %>
-    <tr style="background-color:#cc99ff">
+    <tr>
       <td><%= author.id %></td>
       <td><%= author.first_name %></td>
       <td><%= author.last_name %></td>
       <td><%= author.date_of_birth %></td>
       <td><%= author.book_ids if author.book_ids.any? %></td>
-      <td><%= link_to 'Show', author_path(author) %></td>
-      <td><%= link_to 'Edit', edit_author_path(author) %></td>
-      <td><%= link_to 'Delete', author_path(author), method: :delete,
+      <td><%= link_to 'Show', author_path(author), style: 'color:#000066;' %></td>
+      <td><%= link_to 'Edit', edit_author_path(author), style: 'color:#000066;' %></td>
+      <td><%= link_to 'Delete', author_path(author), style: 'color:#000066;', method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'Home', root_path %>

@@ -2,7 +2,7 @@
 
 <%= link_to 'New book', new_book_path %>
 <table class="table">
-  <tr style="background-color:#cc33ff">
+  <tr>
   	<th>Book Id</th>
     <th>Title</th>
     <th>Author ID</th>
@@ -12,16 +12,14 @@
   </tr>
  
   <% @books.each do |book| %>
-    <tr style="background-color:#cc99ff">
+    <tr>
       <td><%= book.id %></td>
       <td><%= book.title %></td>
       <td><%= book.author_ids if book.author_ids.any? %></td>
-      <td><%= link_to 'Show', book_path(book) %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Delete', book_path(book), method: :delete,
+      <td><%= link_to 'Show', book_path(book), style: 'color:#000066;' %></td>
+      <td><%= link_to 'Edit', edit_book_path(book), style: 'color:#000066;' %></td>
+      <td><%= link_to 'Delete', book_path(book), style: 'color:#000066;', method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'Home', root_path %>

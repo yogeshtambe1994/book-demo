@@ -1,13 +1,18 @@
 <h1>Author details</h1>
 <%= link_to 'Back', authors_path %>
-
-<p>
-  <strong>First name:</strong>
-  <%= @author.first_name %><br>
-  <strong>Last name:</strong>
-  <%= @author.last_name %><br>
-  <strong>Date of birth:</strong>
-  <%= @author.date_of_birth %>
-</p>
-
-<%= link_to 'Home', root_path %>
+<table class="table">
+  <tr>
+  	<th>Author Id</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Date of birth</th>
+    <th>Books ID</th>
+  </tr>
+  <tr>
+      <td><%= @author.id %></td>
+      <td><%= @author.first_name %></td>
+      <td><%= @author.last_name %></td>
+      <td><%= @author.date_of_birth %></td>
+      <td><%= @author.book_ids if @author.book_ids.any? %></td>
+    </tr>
+</table>
