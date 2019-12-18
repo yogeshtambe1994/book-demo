@@ -1,7 +1,12 @@
 class AuthorsController < ApplicationController
-
+	
 	def index
 		@authors = Author.all
+		respond_to do |format|
+    	format.html  # index.html.erb
+    	format.json  { render :json => @authors }
+    	format.xml { render xml: @authors }
+  	end
 	end
 
 	def new
@@ -14,6 +19,7 @@ class AuthorsController < ApplicationController
 
 	def create
 		@author = Author.new(author_params)
+		binding.pry
 		# @author.books << Book.find(params[:author][:book_ids])
 		if @author.save
 			redirect_to @author
@@ -32,7 +38,11 @@ class AuthorsController < ApplicationController
 	end
 
 	def show
-    @author = Author.find(params[:id])
+    @author = Author.find(params[:id]).to_json(only: [:first_name, :last_name], :include => :books)
+		respond_to do |format|
+    	format.html  # index.html.erb
+    	format.json  { render :json => @author }
+  	end
   end
 
   def destroy

@@ -17,7 +17,7 @@
   <% @authors.each do |author| %>
     <tr>
       <td><%= author.id %></td>
-      <td><%= author.first_name %></td>
+      <td><%= link_to author.first_name, author %></td>
       <td><%= author.last_name %></td>
       <td><%= author.date_of_birth %></td>
       <td><%= author.book_ids if author.book_ids.any? %></td>

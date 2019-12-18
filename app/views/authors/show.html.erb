@@ -2,17 +2,9 @@
 <%= link_to 'Back', authors_path %>
 <table class="table">
   <tr>
-  	<th>Author Id</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Date of birth</th>
-    <th>Books ID</th>
+  	<th>Author Details</th>
   </tr>
   <tr>
-      <td><%= @author.id %></td>
-      <td><%= @author.first_name %></td>
-      <td><%= @author.last_name %></td>
-      <td><%= @author.date_of_birth %></td>
-      <td><%= @author.book_ids if @author.book_ids.any? %></td>
-    </tr>
+    <td><%= @author %></td>
+  </tr>
 </table>
