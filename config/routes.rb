@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :authors
   resources :books
   mount AuthorInfo::Base => '/'
+  mount BookInfo::Base => '/'
 end

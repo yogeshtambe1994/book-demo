@@ -19,10 +19,10 @@ class AuthorsController < ApplicationController
 
 	def create
 		@author = Author.new(author_params)
-		binding.pry
 		# @author.books << Book.find(params[:author][:book_ids])
 		if @author.save
-			redirect_to @author
+			flash[:success] = "Author created successfully."
+			redirect_to authors_path
 		else
 			render 'new'
 		end
@@ -31,7 +31,8 @@ class AuthorsController < ApplicationController
 	def update
   	@author = Author.find(params[:id])
   	if @author.update(author_params)
-   	 redirect_to @author
+   		flash[:success] = "Author updated successfully."
+   		redirect_to @author
  		else
     	render 'edit'
   	end

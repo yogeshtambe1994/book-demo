@@ -16,7 +16,8 @@ class BooksController < ApplicationController
 	  @book = Book.new(book_params)
 	  @book.authors << Author.find(params[:book][:author_ids])
 	  if @book.save
-	  	redirect_to @book
+	  	flash[:success] = "Book created successfully."
+	  	redirect_to books_path
 	  else
 	  	render 'new'
 	  end
@@ -25,6 +26,7 @@ class BooksController < ApplicationController
 	def update
   	@book = Book.find(params[:id])
   	if @book.update(book_params)
+  		flash[:success] = "Book updted successfully."
     	redirect_to @book
   	else
     	render 'edit'
