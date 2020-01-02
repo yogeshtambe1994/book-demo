@@ -28,6 +28,7 @@ gem 'yajl-ruby'
 gem 'grape'
 gem 'grape_on_rails_routes'
 gem 'pry', '~> 0.12.2'
+gem 'rack-cors'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
